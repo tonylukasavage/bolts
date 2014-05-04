@@ -1,0 +1,33 @@
+{
+  "name": "node-bootstrap",
+  "version": "0.0.1",
+  "description": "Opinionated node.js bootstrap",
+  "keywords": [
+    "bootstrap"
+  ],
+  "homepage": "git://github.com/tonylukasavage/node-bootstrap.git",
+  "license": "MIT",
+  "author": {
+    "name": "Tony Lukasavage",
+    "email": "anthony.lukasavage@gmail.com"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tonylukasavage/node-bootstrap.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-mocha-test": "~0.10.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "should": "~3.3.0"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}
