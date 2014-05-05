@@ -19,7 +19,9 @@
     "type": "git",
     "url": "git://github.com/tonylukasavage/node-bootstrap.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "commander": "~2.2.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-mocha-test": "~0.10.0",
