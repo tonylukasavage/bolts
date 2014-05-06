@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+var program = require('commander'),
+	bootstrap = require('../lib/node-bootstrap');
+
+program
+	.version(require('../package').version, '-v, --version')
+	.description('Bootstrap a node.js project')
+	.usage('PROJECT_NAME [options]');
+	//.option('-c, --config <config>', 'Configuration JSON file for generating SDK');
+
+program.parse(process.argv);
+
+var project = program.args[0];
+if (!project) {
+	console.error('error: project name required');
+	process.exit(1);
+}
+
+bootstrap(project, program, function(err, results) {
+	if (err) {
+		console.error('error: ' + err);
+		process.exit(1);
+	}
+	console.log('project "' + project + '" created at "' + results.location + '"');
+});

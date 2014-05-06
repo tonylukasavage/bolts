@@ -12,6 +12,9 @@
     "email": "anthony.lukasavage@gmail.com"
   },
   "main": "./index.js",
+  "bin": {
+    "node-bootstrap": "./bin/node-bootstrap"
+  },
   "scripts": {
     "test": "grunt test"
   },
