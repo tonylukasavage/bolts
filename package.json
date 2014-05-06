@@ -20,7 +20,9 @@
     "url": "git://github.com/tonylukasavage/node-bootstrap.git"
   },
   "dependencies": {
-    "commander": "~2.2.0"
+    "commander": "~2.2.0",
+    "prompt": "~0.2.12",
+    "lodash": "~2.4.1"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
