@@ -6,8 +6,8 @@ var program = require('commander'),
 program
 	.version(require('../package').version, '-v, --version')
 	.description('Bootstrap a node.js project')
-	.usage('PROJECT_NAME [options]');
-	//.option('-c, --config <config>', 'Configuration JSON file for generating SDK');
+	.usage('PROJECT_NAME [options]')
+	.option('-c, --config <config>', 'JSON configuration file containing all info needed for templates');
 
 program.parse(process.argv);
 
@@ -22,5 +22,5 @@ bootstrap(project, program, function(err, results) {
 		console.error('error: ' + err);
 		process.exit(1);
 	}
-	console.log('project "' + project + '" created at "' + results.location + '"');
+	console.log('project "' + project + '" created at "' + results + '"');
 });
