@@ -4,9 +4,11 @@
 
 A highly opinionated bootstrap for node.js project by [Tony Lukasavage](https://twitter.com/tonylukasavage). While this can be used for any node.js project, my focus has been primarily on tooling and CLI. The core modules and tools used to create the bootstrapped module are:
 
-* [grunt]()
-* [mocha]()
-* [should]()
+* [grunt]() for task management
+* [mocha]() for unit testing
+* [should]() for assertions
+* [istanbul]() for test coverage
+* [ti-mocha]() for Titanium unit testing (_optional_)
 
 ## Install
 
