@@ -3,34 +3,26 @@
   "version": "0.0.1",
   "description": "<%= description %>",
   "keywords": [],
-  "homepage": "git://github.com/tonylukasavage/<%= project %>",
+  <% if (github) { %>"homepage": "git://github.com/<%= github %>/<%= project %>",<% } %>
   "bugs": {
-    "url": "https://github.com/tonylukasavage/<%= project %>/issues",
+    <% if (github) { %>"url": "https://github.com/<%= github %>/<%= project %>/issues",<% } %>
     "email": "<%= email %>"
   },
   "license": "<%= license %>",
   "author": {
     "name": "<%= name %>",
-    "email": "<%= email %>",
-    "url": "<%= url %>"
+    "email": "<%= email %>"<% if (url) { %>,
+    "url": "<%= url %>"<% } %>
   },
   "main": "./lib/<%= project %>.js",
   "scripts": {
     "test": "grunt test"
   },
-  "repository": {
+  <% if (github) { %>"repository": {
     "type": "git",
-    "url": "git://github.com/tonylukasavage/<%= project %>.git"
-  },
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-mocha-test": "~0.8.1",
-    "grunt-contrib-jshint": "~0.7.2",
-    "grunt-contrib-clean": "~0.5.0",
-    "mocha": "~1.17.0",
-    "should": "~2.1.1",
-    "wrench": "~1.5.4"
-  },
+    "url": "git://github.com/<%= github %>/<%= project %>.git"
+  },<% } %>
+  "devDependencies": {},
   "engines": {
     "node": ">=0.10"
   }
