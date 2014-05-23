@@ -12,7 +12,7 @@
   "author": {
     "name": "<%= name %>",
     "email": "<%= email %>",
-    "url": "<%= url %>"
+    "url": "https://github.com/<%= github %>"
   },
   "main": "./lib/<%= project %>.js",
   "scripts": {
