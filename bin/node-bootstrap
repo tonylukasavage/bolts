@@ -1,26 +1,32 @@
 #!/usr/bin/env node
 
-var program = require('commander'),
+var _ = require('lodash'),
+	program = require('commander'),
 	bootstrap = require('../lib/node-bootstrap');
 
 program
 	.version(require('../package').version, '-v, --version')
 	.description('Bootstrap a node.js project')
-	.usage('PROJECT_NAME [options]')
-	.option('-c, --config <config>', 'JSON configuration file containing all info needed for templates');
+	.usage('[options]')
+	.option('-d, --description <description>', 'Description of the project')
+	.option('-f, --force', 'Overwrite existing project if present')
+	.option('-e, --email <email>', 'You email address')
+	.option('-g, --github <github>', 'Your github username')
+	.option('-p, --project <project>', 'Name of the project')
+	.option('-n, --name <name>', 'Your full name')
+	.option('-u, --url <url>', 'URL of the project')
+	.option('-y, --year <year>', 'Year to use for copyright', new Date().getFullYear());
 
 program.parse(process.argv);
 
-var project = program.args[0];
-if (!project) {
-	console.error('error: project name required');
-	process.exit(1);
+if (!_.isString(program.description)) {
+	program.description = '';
 }
 
-bootstrap(project, program, function(err, results) {
+bootstrap(program, function(err, results) {
 	if (err) {
 		console.error('error: ' + err);
 		process.exit(1);
 	}
-	console.log('project "' + project + '" created at "' + results + '"');
+	console.log('project "' + program.project + '" created at "' + results + '"');
 });
