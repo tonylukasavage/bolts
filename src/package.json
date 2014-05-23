@@ -8,7 +8,7 @@
     <% if (github) { %>"url": "https://github.com/<%= github %>/<%= project %>/issues",<% } %>
     "email": "<%= email %>"
   },
-  "license": "<%= license %>",
+  "license": "MIT",
   "author": {
     "name": "<%= name %>",
     "email": "<%= email %>"<% if (url) { %>,
