@@ -1,9 +1,9 @@
-var <% camelCase(project) %> = require('<%= project %>');
+var <%= projectCamelCase %> = require('<%= project %>');
 
 describe('<%= project %>', function() {
 
 	it('exists', function() {
-		should.exist(<% camelCase(project) %>);
+		should.exist(<%= projectCamelCase %>);
 	});
 
 });
