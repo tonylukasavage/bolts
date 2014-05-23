@@ -3,25 +3,25 @@
   "version": "0.0.1",
   "description": "<%= description %>",
   "keywords": [],
-  <% if (github) { %>"homepage": "git://github.com/<%= github %>/<%= project %>",<% } %>
+  "homepage": "git://github.com/<%= github %>/<%= project %>",
   "bugs": {
-    <% if (github) { %>"url": "https://github.com/<%= github %>/<%= project %>/issues",<% } %>
+    "url": "https://github.com/<%= github %>/<%= project %>/issues",
     "email": "<%= email %>"
   },
   "license": "MIT",
   "author": {
     "name": "<%= name %>",
-    "email": "<%= email %>"<% if (url) { %>,
-    "url": "<%= url %>"<% } %>
+    "email": "<%= email %>",
+    "url": "<%= url %>"
   },
   "main": "./lib/<%= project %>.js",
   "scripts": {
     "test": "grunt test"
   },
-  <% if (github) { %>"repository": {
+  "repository": {
     "type": "git",
     "url": "git://github.com/<%= github %>/<%= project %>.git"
-  },<% } %>
+  },
   "devDependencies": {},
   "engines": {
     "node": ">=0.10"

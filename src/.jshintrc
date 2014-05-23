@@ -19,13 +19,6 @@
 	"-W104": true,
 	"-W068": true,
 	"globals": {
-		<% if (tiGlobals) { %>
-		"alert": false,
-		"Ti": false,
-		"Titanium": false,
-		"mocha": false,
-		"$": false,
-		<% } %>
 		"describe": false,
 		"it": false,
 		"before": false,
