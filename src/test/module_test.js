@@ -1,4 +1,5 @@
-var <%= projectCamelCase %> = require('<%= project %>');
+var <%= projectCamelCase %> = require('..'),
+	should = require('should');
 
 describe('<%= project %>', function() {
 
