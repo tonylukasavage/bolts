@@ -1,1 +1,1 @@
-module.exports = require('./lib/node-bootstrap');
+module.exports = require('./lib/bolts');

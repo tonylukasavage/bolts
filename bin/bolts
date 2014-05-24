@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 var _ = require('lodash'),
-	program = require('commander'),
-	bootstrap = require('../lib/node-bootstrap');
+	bolts = require('..'),
+	program = require('commander');
 
 program
 	.version(require('../package').version, '-v, --version')
@@ -23,7 +23,7 @@ if (!_.isString(program.description)) {
 	program.description = '';
 }
 
-bootstrap(program, function(err, results) {
+bolts(program, function(err, results) {
 	if (err) {
 		if (!/canceled/.test(err)) {
 			console.error('error: ' + err);

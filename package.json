@@ -1,11 +1,11 @@
 {
-  "name": "node-bootstrap",
+  "name": "bolts",
   "version": "0.0.1",
   "description": "Opinionated node.js bootstrap",
   "keywords": [
     "bootstrap"
   ],
-  "homepage": "git://github.com/tonylukasavage/node-bootstrap.git",
+  "homepage": "git://github.com/tonylukasavage/bolts.git",
   "license": "MIT",
   "author": {
     "name": "Tony Lukasavage",
@@ -13,14 +13,14 @@
   },
   "main": "./index.js",
   "bin": {
-    "node-bootstrap": "./bin/node-bootstrap"
+    "bolts": "./bin/bolts"
   },
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tonylukasavage/node-bootstrap.git"
+    "url": "git://github.com/tonylukasavage/bolts.git"
   },
   "dependencies": {
     "commander": "~2.2.0",
