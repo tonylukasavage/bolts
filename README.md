@@ -18,8 +18,25 @@ $ npm install -g node-bootstrap
 
 ## Usage
 
+Below shows all possible options when running `node-bootstrap`. If any required values are omitted, you will be prompted for them.
+
 ```bash
-$ node-boostrap PROJECT_NAME --dest /path/to/new_project
+$ node-bootstrap --help
+
+  Usage: node-bootstrap [options]
+
+  Options:
+
+    -h, --help                       output usage information
+    -v, --version                    output the version number
+    -d, --description <description>  Description of the project
+    -f, --force                      Overwrite existing project if present
+    -e, --email <email>              You email address
+    -g, --github <github>            Your github username
+    -p, --project <project>          Name of the project
+    -n, --name <name>                Your full name
+    -u, --url <url>                  URL of the project
+    -y, --year <year>                Year to use for copyright
 ```
 
 ## Test [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
