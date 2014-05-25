@@ -9,6 +9,7 @@ program
 	.version(require('../package').version, '-v, --version')
 	.description('Bootstrap a node.js project')
 	.usage('[options]')
+	.option('-B, --no-banner', 'Disable the banner')
 	.option('-d, --description <description>', 'Description of the project')
 	.option('-f, --force', 'Overwrite existing project if present')
 	.option('-e, --email <email>', 'You email address')
