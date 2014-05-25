@@ -39,7 +39,7 @@ $ bolts --help
     -y, --year <year>                Year to use for copyright
 ```
 
-## Test [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+## Testing [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ```bash
 $ grunt
