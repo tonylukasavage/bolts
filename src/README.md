@@ -1,3 +1,5 @@
+> **NOT YET IMPLEMENTED**
+
 # <%= project %> [![Build Status](https://travis-ci.org/<%= github %>/<%= project %>.svg?branch=master)](https://travis-ci.org/<%= github %>/<%= project %>)
 
 <%= description %>
