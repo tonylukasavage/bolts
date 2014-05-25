@@ -30,5 +30,9 @@ bolts(program, function(err, results) {
 		}
 		process.exit(1);
 	}
-	console.log('\nnode.js module "' + program.project + '" has been created ' + 'successfully'.green);
+	console.log('\nnode.js module ' + program.project.cyan + ' has been created ' + 'successfully'.green);
+	console.log('');
+	console.log('Optional follow-up steps:');
+	console.log('  1. Create a new repo on github: ' + 'https://github.com/new'.cyan);
+	console.log('  2. Setup Travis CI: ' + 'http://docs.travis-ci.com/user/getting-started/'.cyan);
 });
