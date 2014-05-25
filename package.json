@@ -23,12 +23,13 @@
     "url": "git://github.com/tonylukasavage/bolts.git"
   },
   "dependencies": {
-    "commander": "~2.2.0",
-    "prompt": "~0.2.12",
-    "lodash": "~2.4.1",
     "async": "~0.8.0",
-    "wrench": "~1.5.8",
-    "camel-case": "~0.1.0"
+    "camel-case": "~0.1.0",
+    "colors": "^0.6.2",
+    "commander": "~2.2.0",
+    "lodash": "~2.4.1",
+    "prompt": "~0.2.12",
+    "wrench": "~1.5.8"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

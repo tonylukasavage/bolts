@@ -2,6 +2,7 @@
 
 var _ = require('lodash'),
 	bolts = require('..'),
+	logger = require('../lib/logger'),
 	program = require('commander');
 
 program
@@ -26,13 +27,13 @@ if (!_.isString(program.description)) {
 bolts(program, function(err, results) {
 	if (err) {
 		if (!/canceled/.test(err)) {
-			console.error('error: ' + err);
+			logger.error('error: ' + err);
 		}
 		process.exit(1);
 	}
-	console.log('\nnode.js module ' + program.project.cyan + ' has been created ' + 'successfully'.green);
-	console.log('');
-	console.log('Optional follow-up steps:');
-	console.log('  1. Create a new repo on github: ' + 'https://github.com/new'.cyan);
-	console.log('  2. Setup Travis CI: ' + 'http://docs.travis-ci.com/user/getting-started/'.cyan);
+	logger.log('\nnode.js module ' + program.project.cyan + ' has been created ' + 'successfully'.green);
+	logger.log('');
+	logger.log('Optional follow-up steps:');
+	logger.log('  1. Create a new repo on github: ' + 'https://github.com/new'.cyan);
+	logger.log('  2. Setup Travis CI: ' + 'http://docs.travis-ci.com/user/getting-started/'.cyan);
 });
