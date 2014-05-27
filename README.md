@@ -10,6 +10,11 @@ An opinionated bootstrap for node.js project by [Tony Lukasavage](https://twitte
 * [istanbul](https://github.com/gotwarlost/istanbul) for test coverage
 * [jshint](http://www.jshint.com/) for linting
 
+## Requirements
+
+* [node.js](http://nodejs.org/download/)
+* [git](http://git-scm.com/) (_optional_)
+
 ## Install [![NPM version](https://badge.fury.io/js/bolts.svg)](http://badge.fury.io/js/bolts)
 
 ```bash
@@ -29,12 +34,16 @@ $ bolts --help
 
     -h, --help                       output usage information
     -v, --version                    output the version number
+    -B, --no-banner                  Disable the banner
+    -c, --config <config>            Configuration file for defaults
     -d, --description <description>  Description of the project
     -f, --force                      Overwrite existing project if present
     -e, --email <email>              You email address
     -g, --github <github>            Your github username
-    -p, --project <project>          Name of the project
     -n, --name <name>                Your full name
+    -p, --project <project>          Name of the project
+    -P, --no-prompt                  Diable prompting
+    -q, --quiet                      Disable all logging output, implies --no-prompt
     -u, --url <url>                  URL of the project
     -y, --year <year>                Year to use for copyright
 ```
@@ -42,5 +51,9 @@ $ bolts --help
 ## Testing [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ```bash
+# run jshint and unit tests
 $ grunt
+
+# create coverage report in ./coverage/index.html
+$ grunt coverage
 ```
