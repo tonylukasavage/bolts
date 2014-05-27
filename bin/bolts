@@ -15,6 +15,7 @@ program
 	.option('-e, --email <email>', 'You email address')
 	.option('-g, --github <github>', 'Your github username')
 	.option('-p, --project <project>', 'Name of the project')
+	.option('-P, --no-prompt', 'Diable prompting')
 	.option('-n, --name <name>', 'Your full name')
 	.option('-u, --url <url>', 'URL of the project')
 	.option('-y, --year <year>', 'Year to use for copyright', new Date().getFullYear());
