@@ -10,6 +10,7 @@ program
 	.description('Bootstrap a node.js project')
 	.usage('[options]')
 	.option('-B, --no-banner', 'Disable the banner')
+	.option('-c, --config <config>', 'Configuration file for defaults')
 	.option('-d, --description <description>', 'Description of the project')
 	.option('-f, --force', 'Overwrite existing project if present')
 	.option('-e, --email <email>', 'You email address')
@@ -23,7 +24,7 @@ program
 program.parse(process.argv);
 
 if (!_.isString(program.description)) {
-	program.description = '';
+	program.description = undefined;
 }
 
 bolts(program, function(err, results) {
