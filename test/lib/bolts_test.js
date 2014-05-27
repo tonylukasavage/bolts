@@ -1,5 +1,7 @@
-var constants = require('../../lib/constants'),
+var _ = require('lodash'),
+	constants = require('../../lib/constants'),
 	fs = require('fs'),
+	logger = require('../../lib/logger'),
 	path = require('path'),
 	should = require('should'),
 	wrench = require('wrench');
@@ -9,14 +11,19 @@ var TMP = path.resolve('tmp'),
 	HOME = path.join(TMP, 'home'),
 	CONFIG = path.join(HOME, constants.CONFIG);
 
+// prep test environment
 constants.HOME = HOME;
+logger.quiet = true;
 
 // make sure to load bolts _after_ setting HOME
-var bolts = require('../..');
+var bolts = require('../..'),
+	log = '';
 
+// test suite
 describe('bolts.js', function() {
 
 	beforeEach(function() {
+		log = '';
 		wrench.mkdirSyncRecursive(HOME, 0755);
 	});
 
@@ -25,16 +32,8 @@ describe('bolts.js', function() {
 		bolts.should.be.a.Function;
 	});
 
-	it('returns error when no opts and no config', function(done) {
-		bolts(function(err) {
-			should.exist(err);
-			err.should.match(/missing/);
-			done();
-		});
-	});
-
 	it('returns error when no project and no config', function(done) {
-		bolts({}, function(err) {
+		bolts({ prompt: false }, function(err) {
 			should.exist(err);
 			err.should.match(/missing/);
 			done();
@@ -46,3 +45,5 @@ describe('bolts.js', function() {
 	});
 
 });
+
+
