@@ -13,5 +13,9 @@ $ npm install <%= project %>
 ## Testing [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ```bash
+# run jshint and unit tests
 $ grunt
+
+# create coverage report in ./coverage/index.html
+$ grunt coverage
 ```
