@@ -20,7 +20,7 @@ program
 	.option('-P, --no-prompt', 'Diable prompting')
 	.option('-q, --quiet', 'Disable all logging output, implies --no-prompt')
 	.option('-u, --url <url>', 'URL of the project')
-	.option('-y, --year <year>', 'Year to use for copyright', new Date().getFullYear());
+	.option('-y, --year <year>', 'Year to use for copyright');
 
 program.parse(process.argv);
 
