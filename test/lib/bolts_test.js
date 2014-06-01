@@ -3,6 +3,7 @@ var _ = require('lodash'),
 	fs = require('fs'),
 	logger = require('../../lib/logger'),
 	path = require('path'),
+	prompt = require('prompt'),
 	should = require('should'),
 	wrench = require('wrench');
 
@@ -12,7 +13,14 @@ var TMP = path.resolve('tmp'),
 	CONFIG = path.join(HOME, constants.CONFIG),
 	FOO = path.resolve('foo'),
 	SRC = path.resolve('src'),
-	FIXTURES = path.resolve('test','fixtures');
+	FIXTURES = path.resolve('test','fixtures'),
+	RESULTS = {
+		project: 'foo',
+		description: 'test description',
+		name: 'test person',
+		email: 'test@test.com',
+		github: 'testuser'
+	};
 
 // prep test environment
 constants.HOME = HOME;
@@ -27,6 +35,7 @@ describe('bolts.js', function() {
 	beforeEach(function() {
 		logger.quiet = true;
 		wrench.mkdirSyncRecursive(HOME, 0755);
+		this._get = prompt.get;
 	});
 
 	it('exports a function', function() {
@@ -34,8 +43,8 @@ describe('bolts.js', function() {
 		bolts.should.be.a.Function;
 	});
 
-	it.skip('returns error when no opts and no config', function(done) {
-		// need to stub stdin for prompt
+	it('should return error when no opts and no config', function(done) {
+		stubPromptGet('missing', null);
 		bolts(function(err) {
 			should.exist(err);
 			err.should.match(/missing/);
@@ -43,7 +52,7 @@ describe('bolts.js', function() {
 		});
 	});
 
-	it('returns error when no project and no config', function(done) {
+	it('should return error when no project and no config', function(done) {
 		bolts({ prompt: false }, function(err) {
 			should.exist(err);
 			err.should.match(/missing/);
@@ -51,7 +60,7 @@ describe('bolts.js', function() {
 		});
 	});
 
-	it('executes using explicit config file', function(done) {
+	it('should execute using explicit config file', function(done) {
 		var opts = {
 			prompt: false,
 			config: path.join(FIXTURES, constants.CONFIG)
@@ -92,10 +101,15 @@ describe('bolts.js', function() {
 	});
 
 	afterEach(function() {
+		prompt.get = this._get;
 		wrench.rmdirSyncRecursive(TMP, true);
 		wrench.rmdirSyncRecursive(FOO, true);
 	});
 
 });
 
-
+function stubPromptGet(err, opts) {
+	prompt.get = function(schema, callback) {
+		callback(err, opts);
+	};
+}
