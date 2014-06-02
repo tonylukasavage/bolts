@@ -89,6 +89,16 @@ describe('bolts.js', function() {
 			done();
 		});
 	});
+
+	it('should return error when given config that does not exist', function(done) {
+		bolts({ quiet: true, config: '/i/do/not/exist' }, function(err) {
+			should.exist(err);
+			should.exist(err.code);
+			err.code.should.equal('ENOENT');
+			done();
+		});
+	});
+
 	it('should execute using explicit config file', function(done) {
 		var opts = {
 			prompt: false,
