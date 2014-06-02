@@ -74,13 +74,21 @@ describe('bolts.js', function() {
 	});
 
 	it('should return error when no project and no config', function(done) {
-		bolts({ quiet: true, prompt: false }, function(err) {
+		bolts({ quiet: true, prompt: false, banner: false }, function(err) {
 			should.exist(err);
 			err.should.match(/missing/);
 			done();
 		});
 	});
 
+	it('should return error when no project and and empty config in HOME', function(done) {
+		fs.writeFileSync(CONFIG, '{}');
+		bolts({ quiet: true }, function(err) {
+			should.exist(err);
+			err.should.match(/missing/);
+			done();
+		});
+	});
 	it('should execute using explicit config file', function(done) {
 		var opts = {
 			prompt: false,
