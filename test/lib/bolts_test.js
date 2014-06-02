@@ -44,7 +44,7 @@ describe('bolts.js', function() {
 		bolts.should.be.a.Function;
 	});
 
-	it('should return error when no opts and no config', function(done) {
+	it('should return error when no reqs and no config', function(done) {
 		stubPromptGet('missing', null);
 		bolts(function(err) {
 			should.exist(err);
@@ -73,8 +73,17 @@ describe('bolts.js', function() {
 		});
 	});
 
-	it('should return error when no project and no config', function(done) {
+	it('should return error when no reqs and no config', function(done) {
 		bolts({ quiet: true, prompt: false, banner: false }, function(err) {
+			should.exist(err);
+			err.should.match(/missing/);
+			done();
+		});
+	});
+
+	it('should return error when no reqs and and empty config in HOME', function(done) {
+		fs.writeFileSync(CONFIG, '{}');
+		bolts({ quiet: true }, function(err) {
 			should.exist(err);
 			err.should.match(/missing/);
 			done();
@@ -86,6 +95,24 @@ describe('bolts.js', function() {
 		bolts({ quiet: true }, function(err) {
 			should.exist(err);
 			err.should.match(/missing/);
+			done();
+		});
+	});
+
+	it('should return error with incomplete config', function(done) {
+		fs.writeFileSync(CONFIG, '{"name":"x","description":"x","email":"x","github":"x"}');
+		bolts({ quiet: true }, function(err) {
+			should.exist(err);
+			err.should.match(/missing/);
+			done();
+		});
+	});
+
+	it('should return error with invalid config', function(done) {
+		fs.writeFileSync(CONFIG, '{{{}');
+		bolts({ quiet: true }, function(err) {
+			should.exist(err);
+			err.should.match(/SyntaxError/);
 			done();
 		});
 	});
