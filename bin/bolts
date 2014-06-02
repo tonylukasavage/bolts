@@ -28,11 +28,6 @@ if (!_.isString(program.description)) {
 	program.description = undefined;
 }
 
-if (program.quiet) {
-	logger.quiet = true;
-	program.prompt = false;
-}
-
 bolts(program, function(err, results) {
 	if (err) {
 		if (!/canceled/.test(err)) {
