@@ -1,6 +1,6 @@
-> **NOT YET FUNCTIONAL**
-
 # bolts [![Build Status](https://travis-ci.org/tonylukasavage/bolts.svg?branch=master)](https://travis-ci.org/tonylukasavage/bolts)
+
+![execution](http://cl.ly/image/3x1C07411C1y/Screen%20Shot%202014-06-02%20at%203.47.47%20PM.png)
 
 An opinionated bootstrap for node.js project by [Tony Lukasavage](https://twitter.com/tonylukasavage). While this can be used for any node.js project, my focus has been primarily on tooling and CLI when building on Mac OSX. The core modules and tools used to create the bootstrapped module are:
 
