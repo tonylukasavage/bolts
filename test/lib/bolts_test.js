@@ -37,6 +37,7 @@ describe('bolts.js', function() {
 		this._get = prompt.get;
 		this._consoleLog = console.log;
 		this._env = process.env;
+		this._HOME = process.env.HOME;
 	});
 
 	it('exports a function', function() {
@@ -177,6 +178,7 @@ describe('bolts.js', function() {
 
 	afterEach(function() {
 		process.env = this._env;
+		process.env.HOME = this._HOME;
 		prompt.get = this._get;
 		console.log = this._consoleLog;
 		wrench.rmdirSyncRecursive(TMP, true);
