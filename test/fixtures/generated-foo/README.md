@@ -1,13 +1,13 @@
 > **NOT YET IMPLEMENTED**
 
-# foo [![Build Status](https://travis-ci.org/tonylukasavage/foo.svg?branch=master)](https://travis-ci.org/tonylukasavage/foo)
+# generated-foo [![Build Status](https://travis-ci.org/tonylukasavage/generated-foo.svg?branch=master)](https://travis-ci.org/tonylukasavage/generated-foo)
 
 a node.js module
 
-## Install [![NPM version](https://badge.fury.io/js/foo.svg)](http://badge.fury.io/js/foo)
+## Install [![NPM version](https://badge.fury.io/js/generated-foo.svg)](http://badge.fury.io/js/generated-foo)
 
 ```bash
-$ npm install foo
+$ npm install generated-foo
 ```
 
 ## Testing [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)

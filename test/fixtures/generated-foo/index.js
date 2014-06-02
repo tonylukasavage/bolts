@@ -1,1 +1,1 @@
-module.exports = require('./lib/foo');
+module.exports = require('./lib/generated-foo');

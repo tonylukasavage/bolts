@@ -1,11 +1,11 @@
 {
-  "name": "foo",
+  "name": "generated-foo",
   "version": "0.0.1",
   "description": "a node.js module",
   "keywords": [],
-  "homepage": "git://github.com/tonylukasavage/foo",
+  "homepage": "git://github.com/tonylukasavage/generated-foo",
   "bugs": {
-    "url": "https://github.com/tonylukasavage/foo/issues",
+    "url": "https://github.com/tonylukasavage/generated-foo/issues",
     "email": "anthony.lukasavage@gmail.com"
   },
   "license": "MIT",
@@ -14,13 +14,13 @@
     "email": "anthony.lukasavage@gmail.com",
     "url": "https://github.com/tonylukasavage"
   },
-  "main": "./lib/foo.js",
+  "main": "./lib/generated-foo.js",
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tonylukasavage/foo.git"
+    "url": "git://github.com/tonylukasavage/generated-foo.git"
   },
   "devDependencies": {
 	"grunt": "~0.4.5",
