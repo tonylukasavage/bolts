@@ -146,31 +146,49 @@ describe('bolts.js', function() {
 		bolts(opts, function(err) {
 			should.not.exist(err);
 
-			// get expected source file listing and update JS file names
-			var srcFiles = wrench.readdirSyncRecursive(SRC);
-			srcFiles = _.map(srcFiles, function(file) {
-				var basename = path.basename(file);
-				if (_.contains(['module.js','module_test.js'], basename)) {
-					return path.join(path.dirname(file), basename.replace('module', 'foo'));
-				}
-				return file;
+			var fixFiles = wrench.readdirSyncRecursive(path.join(FIXTURES,'foo')),
+				fooFiles = wrench.readdirSyncRecursive(FOO);
+
+			// do we have all the files?
+			var diff = _.difference(fixFiles, fooFiles);
+			_.difference(fixFiles, fooFiles).length.should.equal(0);
+
+			// compare the files
+			fixFiles.forEach(function(file) {
+				var fixFilePath = path.join(FIXTURES,'foo',file),
+					fooFilePath = path.join(FOO,file);
+				if (!fs.statSync(fixFilePath).isFile()) { return; }
+
+				var fixContent = fs.readFileSync(fixFilePath, 'utf8'),
+					fooContent = fs.readFileSync(fooFilePath, 'utf8');
+				fixContent.should.equal(fooContent);
 			});
 
-			// make sure we have all expected files, and validate where possible
-			var actualFiles = wrench.readdirSyncRecursive(FOO);
-			srcFiles.forEach(function(file) {
-				actualFiles.should.containEql(file);
+			// // get expected source file listing and update JS file names
+			// var srcFiles = wrench.readdirSyncRecursive(SRC);
+			// srcFiles = _.map(srcFiles, function(file) {
+			// 	var basename = path.basename(file);
+			// 	if (_.contains(['module.js','module_test.js'], basename)) {
+			// 		return path.join(path.dirname(file), basename.replace('module', 'foo'));
+			// 	}
+			// 	return file;
+			// });
 
-				if (file === 'package.json') {
-					var json = require(path.join(FOO, 'package.json'));
-					json.name.should.equal(config.project);
-					json.description.should.equal(config.description);
-					json.author.name.should.equal(config.name);
-					json.author.email.should.equal(config.email);
-					json.repository.url.should.equal(
-						'git://github.com/' + config.github + '/' + config.project + '.git');
-				}
-			});
+			// // make sure we have all expected files, and validate where possible
+			// var actualFiles = wrench.readdirSyncRecursive(FOO);
+			// srcFiles.forEach(function(file) {
+			// 	actualFiles.should.containEql(file);
+
+			// 	if (file === 'package.json') {
+			// 		var json = require(path.join(FOO, 'package.json'));
+			// 		json.name.should.equal(config.project);
+			// 		json.description.should.equal(config.description);
+			// 		json.author.name.should.equal(config.name);
+			// 		json.author.email.should.equal(config.email);
+			// 		json.repository.url.should.equal(
+			// 			'git://github.com/' + config.github + '/' + config.project + '.git');
+			// 	}
+			// });
 
 			done();
 		});

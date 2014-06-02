@@ -2,7 +2,7 @@
 
 # foo [![Build Status](https://travis-ci.org/tonylukasavage/foo.svg?branch=master)](https://travis-ci.org/tonylukasavage/foo)
 
-a node.js module
+fixture description
 
 ## Install [![NPM version](https://badge.fury.io/js/foo.svg)](http://badge.fury.io/js/foo)
 

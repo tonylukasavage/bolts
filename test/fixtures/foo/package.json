@@ -1,7 +1,7 @@
 {
   "name": "foo",
   "version": "0.0.1",
-  "description": "a node.js module",
+  "description": "fixture description",
   "keywords": [],
   "homepage": "git://github.com/tonylukasavage/foo",
   "bugs": {
