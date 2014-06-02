@@ -24,7 +24,6 @@ var TMP = path.resolve('tmp'),
 
 // prep test environment
 constants.HOME = HOME;
-logger.quiet = true;
 
 // make sure to load bolts _after_ setting HOME
 var bolts = require('../..');
@@ -36,6 +35,7 @@ describe('bolts.js', function() {
 		logger.quiet = true;
 		wrench.mkdirSyncRecursive(HOME, 0755);
 		this._get = prompt.get;
+		this._consoleLog = console.log;
 	});
 
 	it('exports a function', function() {
@@ -52,8 +52,28 @@ describe('bolts.js', function() {
 		});
 	});
 
-	it('should return error when no project and no config', function(done) {
+	it('should print banner if not --quiet and not --no-prompt', function(done) {
+		var ctr = 0, output;
+		logger.quiet = false;
+		console.log = function(str) {
+			if (ctr++ === 0) {
+				output = str;
+			}
+		};
+
 		bolts({ prompt: false }, function(err) {
+			// lazy check for banner
+			output.should.containEql('\u001b[31m$\u001b[39m\u001b[31m$\u001b[39m\u001b[31m$\u001b[39m');
+			logger.log();
+
+			should.exist(err);
+			err.should.match(/missing/);
+			done();
+		});
+	});
+
+	it('should return error when no project and no config', function(done) {
+		bolts({ quiet: true, prompt: false }, function(err) {
 			should.exist(err);
 			err.should.match(/missing/);
 			done();
@@ -102,6 +122,7 @@ describe('bolts.js', function() {
 
 	afterEach(function() {
 		prompt.get = this._get;
+		console.log = this._consoleLog;
 		wrench.rmdirSyncRecursive(TMP, true);
 		wrench.rmdirSyncRecursive(FOO, true);
 	});
