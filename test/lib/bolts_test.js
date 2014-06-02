@@ -126,6 +126,15 @@ describe('bolts.js', function() {
 		});
 	});
 
+	it('should return error when project folder exists with --force', function(done) {
+		wrench.mkdirSyncRecursive(FOO, 0755);
+		bolts({ quiet: true, config: path.join(FIXTURES, constants.CONFIG) }, function(err) {
+			should.exist(err);
+			err.should.match(/already exists/);
+			done();
+		});
+	});
+
 	it('should execute using explicit config file', function(done) {
 		var opts = {
 			prompt: false,
