@@ -136,7 +136,7 @@ describe('bolts.js', function() {
 		});
 	});
 
-	it('should execute using explicit config file', function(done) {
+	it.skip('should execute using explicit config file', function(done) {
 		var opts = {
 			prompt: false,
 			config: path.join(FIXTURES, constants.CONFIG)
