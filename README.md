@@ -1,3 +1,5 @@
+> This repo is not currently maintained. 
+
 # bolts [![Build Status](https://travis-ci.org/tonylukasavage/bolts.svg?branch=master)](https://travis-ci.org/tonylukasavage/bolts)
 
 ![execution](http://cl.ly/image/3x1C07411C1y/Screen%20Shot%202014-06-02%20at%203.47.47%20PM.png)
